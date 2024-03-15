@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'dart:convert';
+import 'dart:io';
+import 'package:flutter/services.dart' show rootBundle;
+
 
 // Définition des couleurs de la palette
 const Color color1 = Color(0xFFE7ECEF);
@@ -66,7 +70,7 @@ class DashboardScreen extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ArtworksDetailPage()),
+                    MaterialPageRoute(builder: (context) => ArtworksGalleryPage()),
                   );
                 },
                 color: color4,
@@ -176,18 +180,52 @@ class VisitorDetailPage extends StatelessWidget {
   }
 }
 
-class ArtworksDetailPage extends StatelessWidget {
+class ArtworksGalleryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Détails des œuvres"),
-        backgroundColor: color2,
-      ),
-      body: Center(
-        child: Text("Plus d'informations sur les œuvres ici."),
-      ),
+    return FutureBuilder(
+      future: loadJsonData(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return CircularProgressIndicator(); // Display a loading indicator while data is being loaded
+        } else if (snapshot.hasError) {
+          return Text('Error loading data: ${snapshot.error}');
+        } else {
+          final List<String>? imageUrls = snapshot.data?.cast<String>();
+          return Scaffold(
+            appBar: AppBar(
+              title: Text("Galerie d'œuvres"),
+              backgroundColor: color2,
+            ),
+            body: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+              ),
+              itemCount: imageUrls?.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    // Handle tap on image
+                  },
+                  child: Image.network(
+                    imageUrls![index],
+                    fit: BoxFit.cover,
+                  ),
+                );
+              },
+            ),
+          );
+        }
+      },
     );
+  }
+  Future<List> loadJsonData() async {
+    final jsonData = await rootBundle.loadString('assets/ImageLinks.json');
+    final Map<String, dynamic> imagesData = json.decode(jsonData);
+    final List imageUrls = imagesData.values.toList();
+    return imageUrls;
   }
 }
 
