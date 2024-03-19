@@ -7,16 +7,18 @@ import 'OrangerieDetailPage.dart';
 import 'QuaiBranlyDetailPage.dart';
 import 'RoomsDetailPage.dart';
 import 'StatisticCard.dart';
-import 'VisitorDetailPage.dart';
+import 'HorairesLouvre.dart';
 import 'main.dart';
-
 
 class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Musées-de-Paris.Stats'),
+        title: Text(
+          'Musées-de-Paris.Stats',
+          style: TextStyle(color: Colors.white),
+        ),
         backgroundColor: color2,
       ),
       body: SingleChildScrollView(
@@ -27,29 +29,32 @@ class DashboardScreen extends StatelessWidget {
             children: <Widget>[
               SizedBox(height: 20),
               Text(
-                "Musée du Louvres",
+                "Musée du Louvre",
                 style: Theme.of(context).textTheme.headline5?.copyWith(color: color2),
               ),
               SizedBox(height: 20),
               AffluenceBarChart(),
+              // Bouton "Aperçu des œuvres exposées" en premier
               StatisticCard(
-                title: "Nombre de visiteurs aujourd'hui",
-                value: "2,300",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => VisitorDetailPage()),
-                  );
-                },
-                color: color4,
-              ),
-              StatisticCard(
-                title: "Nombre d'œuvres",
-                value: "35 000",
+                title: "Aperçu des œuvres exposées",
+
+                value: "",
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => ArtworksGalleryPage()),
+                  );
+                },
+                color: color4,
+              ),
+              // Bouton "Nombre de visiteurs aujourd'hui" déplacé en deuxième position
+              StatisticCard(
+                title: "Horaires d'ouverture détaillés",
+                value: "",
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HorairesLouvre()),
                   );
                 },
                 color: color4,
@@ -78,4 +83,6 @@ class DashboardScreen extends StatelessWidget {
           ),
         ),
       ),
-    );}}
+    );
+  }
+}

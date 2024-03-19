@@ -33,10 +33,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
-
-
   Future<List> loadJsonData() async {
     final jsonData = await rootBundle.loadString('assets/ImageLinks.json');
     final Map<String, dynamic> imagesData = json.decode(jsonData);
