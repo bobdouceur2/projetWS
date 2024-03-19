@@ -5,7 +5,7 @@ import 'DashboardButton.dart';
 import 'GuimetDetailPage.dart';
 import 'OrangerieDetailPage.dart';
 import 'QuaiBranlyDetailPage.dart';
-import 'RoomsDetailPage.dart';
+import 'PrixTicketsLouvre.dart';
 import 'StatisticCard.dart';
 import 'HorairesLouvre.dart';
 import 'main.dart';
@@ -38,7 +38,7 @@ class DashboardScreen extends StatelessWidget {
               StatisticCard(
                 title: "Aperçu des œuvres exposées",
 
-                value: "",
+
                 onTap: () {
                   Navigator.push(
                     context,
@@ -50,7 +50,7 @@ class DashboardScreen extends StatelessWidget {
               // Bouton "Nombre de visiteurs aujourd'hui" déplacé en deuxième position
               StatisticCard(
                 title: "Horaires d'ouverture détaillés",
-                value: "",
+
                 onTap: () {
                   Navigator.push(
                     context,
@@ -60,12 +60,12 @@ class DashboardScreen extends StatelessWidget {
                 color: color4,
               ),
               StatisticCard(
-                title: "Nombre de salles",
-                value: "380",
+                title: "Prix des Tickets",
+
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => RoomsDetailPage()),
+                    MaterialPageRoute(builder: (context) => PrixTicketLouvre()),
                   );
                 },
                 color: color4,
