@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
-class HorairesLouvre extends StatelessWidget {
+class HorairesOrangerie extends StatelessWidget {
   final List<Map<String, dynamic>> horaires = [
-    {"jour": "Lundi", "heures": "9h - 18h"},
+    {"jour": "Lundi", "heures": "Fermé"},
+    {"jour": "Mardi", "heures": "9h - 18h"},
     {"jour": "Mercredi", "heures": "9h - 18h"},
-    {"jour": "Vendredi", "heures": "9h - 21h45 (nocturne)"},
-    // Ajoutez d'autres jours et horaires ici
+    {"jour": "Jeudi", "heures": "9h - 18h"},
+    {"jour": "Vendredi", "heures": "9h - 18h"},
+    {"jour": "Samedi", "heures": "9h - 18h"},
+    {"jour": "Dimanche", "heures": "9h - 18h"},
+    // Mettez à jour les horaires selon les informations réelles du musée
   ];
 
   // Définition des nouvelles couleurs
@@ -18,10 +22,10 @@ class HorairesLouvre extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Horaires d\'ouverture détaillés',
-          style: TextStyle(color: color3), // Utilisation de color3 pour le texte de l'AppBar
+          'Horaires d\'ouverture détaillés de l\'Orangerie',
+          style: TextStyle(color: color3),
         ),
-        backgroundColor: color1, // Utilisation de color1 pour le fond de l'AppBar
+        backgroundColor: color1,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -29,16 +33,16 @@ class HorairesLouvre extends StatelessWidget {
           itemCount: horaires.length,
           itemBuilder: (context, index) {
             return Card(
-              color: color2, // Utilisation de color2 pour le fond des cartes
+              color: color2,
               margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
               child: ListTile(
                 title: Text(
                   horaires[index]["jour"],
-                  style: TextStyle(fontWeight: FontWeight.bold, color: color1), // Utilisation de color1 pour le texte du jour
+                  style: TextStyle(fontWeight: FontWeight.bold, color: color1),
                 ),
                 subtitle: Text(
                   horaires[index]["heures"],
-                  style: TextStyle(color: color1), // Utilisation de color1 pour le texte des heures
+                  style: TextStyle(color: color1),
                 ),
               ),
             );

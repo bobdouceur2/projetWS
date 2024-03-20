@@ -13,7 +13,7 @@ class AffluenceBarChart extends StatelessWidget {
           child: Text(
             "Affluence en fonction de l'heure aujourd'hui",
             style: TextStyle(
-              fontSize: 19, // Taille de police réduite
+              fontSize: 18, // Taille de police réduite
               fontWeight: FontWeight.bold,
               color: Colors.black, // Ajustez la couleur selon votre thème
             ),

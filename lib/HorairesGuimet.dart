@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
-class HorairesLouvre extends StatelessWidget {
+class HorairesGuimet extends StatelessWidget {
   final List<Map<String, dynamic>> horaires = [
-    {"jour": "Lundi", "heures": "9h - 18h"},
-    {"jour": "Mercredi", "heures": "9h - 18h"},
-    {"jour": "Vendredi", "heures": "9h - 21h45 (nocturne)"},
-    // Ajoutez d'autres jours et horaires ici
+    {"jour": "Lundi", "heures": "Fermé"},
+    {"jour": "Mardi", "heures": "10h - 18h"},
+    {"jour": "Mercredi", "heures": "10h - 18h"},
+    {"jour": "Jeudi", "heures": "10h - 18h"},
+    {"jour": "Vendredi", "heures": "10h - 18h"},
+    {"jour": "Samedi", "heures": "10h - 18h"},
+    {"jour": "Dimanche", "heures": "10h - 18h"},
+    // Assurez-vous que ces horaires sont corrects et à jour
   ];
 
   // Définition des nouvelles couleurs
@@ -18,7 +22,7 @@ class HorairesLouvre extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Horaires d\'ouverture détaillés',
+          'Horaires d\'ouverture du Musée Guimet',
           style: TextStyle(color: color3), // Utilisation de color3 pour le texte de l'AppBar
         ),
         backgroundColor: color1, // Utilisation de color1 pour le fond de l'AppBar

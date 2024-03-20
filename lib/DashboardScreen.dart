@@ -34,7 +34,7 @@ class DashboardScreen extends StatelessWidget {
               ),
               SizedBox(height: 20),
               AffluenceBarChart(),
-              // Bouton "Aperçu des œuvres exposées" en premier
+
               StatisticCard(
                 title: "Aperçu des œuvres exposées",
 
