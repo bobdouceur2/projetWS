@@ -23,31 +23,38 @@ class ArtworksGalleryPage extends StatelessWidget {
               backgroundColor: Color(0xFF212222), // Utiliser la couleur de fond neutre
               // Assurez-vous qu'il n'y a pas de propriété 'leading' ici
             ),
-            body: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, // Afficher 3 images par rangée
-                crossAxisSpacing: 16, // Utiliser la valeur de l'espacement de grille définie
-                mainAxisSpacing: 16, // Utiliser la valeur de l'espacement de grille définie
-              ),
-              itemCount: imageUrls?.length,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    _showImageDialog(context, imageUrls![index]);
-                  },
-                  child: Card(
-                    elevation: 5,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+            body: LayoutBuilder(
+              builder: (context, constraints) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: constraints.maxWidth * 0.05), // Utiliser 5% de la largeur de l'écran comme padding horizontal
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3, // Afficher 3 images par rangée
+                      crossAxisSpacing: 16, // Utiliser la valeur de l'espacement de grille définie
+                      mainAxisSpacing: 16, // Utiliser la valeur de l'espacement de grille définie
                     ),
-                    color: Color(0xFF212222), // Utiliser la couleur de fond neutre
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.network(
-                        imageUrls![index],
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                    itemCount: imageUrls?.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          _showImageDialog(context, imageUrls![index]);
+                        },
+                        child: Card(
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          color: Color(0xFF212222), // Utiliser la couleur de fond neutre
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: Image.network(
+                              imageUrls![index],
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 );
               },
