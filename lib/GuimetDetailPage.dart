@@ -1,8 +1,9 @@
+import 'package:fdgcthvjk/ArtworksGuimet.dart';
 import 'package:fdgcthvjk/DashboardScreen.dart';
 import 'package:fdgcthvjk/HorairesGuimet.dart';
 import 'package:flutter/material.dart';
 import 'AffluenceBarChart.dart';
-import 'ArtworksGalleryPage.dart';
+import 'ArtworksLouvres.dart';
 import 'DashboardButton.dart';
 import 'GuimetDetailPage.dart';
 import 'OrangerieDetailPage.dart';
@@ -44,7 +45,7 @@ class GuimetDetailPage extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ArtworksGalleryPage()),
+                    MaterialPageRoute(builder: (context) => ArtworksGuimet()),
                   );
                 },
                 color: color4,

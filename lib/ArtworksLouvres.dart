@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
 
-class ArtworksGalleryPage extends StatelessWidget {
+class ArtworksLouvres extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: loadJsonData(),
+      future: loadJsonDataLouvres(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(

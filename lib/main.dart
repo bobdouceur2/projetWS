@@ -33,12 +33,35 @@ class MyApp extends StatelessWidget {
   }
 }
 
-  Future<List> loadJsonData() async {
-    final jsonData = await rootBundle.loadString('assets/ImageLinks.json');
+  Future<List> loadJsonDataLouvres() async {
+    final jsonData = await rootBundle.loadString('assets/ImageLinksLouvres.json');
     final Map<String, dynamic> imagesData = json.decode(jsonData);
     final List imageUrls = imagesData.values.toList();
     return imageUrls;
   }
+
+  Future<List> loadJsonDataGuimet() async {
+    final jsonData = await rootBundle.loadString('assets/ImageLinksGuimet.json');
+    final Map<String, dynamic> imagesData = json.decode(jsonData);
+    final List imageUrls = imagesData.values.toList();
+    return imageUrls;
+  }
+
+  Future<List> loadJsonDataOrangerie() async {
+    final jsonData = await rootBundle.loadString('assets/ImageLinksLouvres.json');
+    final Map<String, dynamic> imagesData = json.decode(jsonData);
+    final List imageUrls = imagesData.values.toList();
+    return imageUrls;
+  }
+
+  Future<List> loadJsonDataBranly() async {
+    final jsonData = await rootBundle.loadString('assets/ImageLinksGuimet.json');
+    final Map<String, dynamic> imagesData = json.decode(jsonData);
+    final List imageUrls = imagesData.values.toList();
+    return imageUrls;
+  }
+
+
 
 
 

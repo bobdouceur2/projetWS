@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'AffluenceBarChart.dart';
-import 'ArtworksGalleryPage.dart';
+import 'ArtworksLouvres.dart';
 import 'DashboardButton.dart';
 import 'GuimetDetailPage.dart';
 import 'OrangerieDetailPage.dart';
@@ -53,7 +53,7 @@ class DashboardScreen extends StatelessWidget {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => ArtworksGalleryPage()),
+                          MaterialPageRoute(builder: (context) => ArtworksLouvres()),
                         );
                       },
                       color: color4,

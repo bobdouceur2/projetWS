@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'main.dart';
 
-class ArtworksGalleryPage extends StatelessWidget {
+class ArtworksBranly extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: loadJsonData(),
+      future: loadJsonDataBranly(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return CircularProgressIndicator(); // Display a loading indicator while data is being loaded
@@ -22,9 +22,9 @@ class ArtworksGalleryPage extends StatelessWidget {
             ),
             body: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
+                crossAxisCount: 3,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
               ),
               itemCount: imageUrls?.length,
               itemBuilder: (context, index) {

@@ -93,4 +93,5 @@ dev_dependencies:
   # see https://flutter.dev/custom-fonts/#from-packages
 flutter:
   assets:
-    - assets/ImageLinks.json
+    - assets/ImageLinksLouvres.json
+    - assets/ImageLinksGuimet.json
